@@ -106,10 +106,7 @@ exports.UpdateContact = (req, res, next) => {
       updateQuery = { cType: value };
       break;
   }
-  Contact.updateOne(
-    { _id: cid, "meta.createdBy": uid },
-    { $set: { ...updateQuery } }
-  )
+  Contact.updateOne({ _id: cid, "meta.createdBy": uid }, { $set: updateQuery })
     .then((upd) => {
       res.status(200).send({ state: "OK" });
     })
