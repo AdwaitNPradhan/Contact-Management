@@ -87,7 +87,6 @@ returns
 ---
 
 ## ~/api/auth/signin
-
 > _Method_: **POST**\
 > _Action_: Signs in a user. After a successfull login, token is set into a cookie and sent to client, while also being sent in the **Response** object
 
@@ -173,6 +172,7 @@ returns
 
 ## ~/api/v1/profile
 
+> **Needs Auth**\
 > _Method_:**POST**\
 > _Action_: Get the profile of the currently logged in user
 
@@ -197,6 +197,7 @@ returns
 
 ## ~/api/v1/contacts
 
+> **Needs Auth**\
 > _Mehtod_: **GET**\
 > _Action_: Get a list of contacts, added under a specific user
 
@@ -227,6 +228,7 @@ returns
 
 ## ~/api/v1/contacts/:cid
 
+> **Needs Auth**\
 > _Method_: **GET**\
 > _Action_: If the `cid` url parameter is provided, returns with the cotact details with `_id` responing to that `cid`. If not supplied, returns a list of contacts under that user.
 
@@ -251,6 +253,7 @@ returns
 
 ## ~/api/v1/contacts/:cid
 
+> **Needs Auth**\
 > _Method_: **POST**\
 > _Action_: Create a new Contact under the currently signed in user
 
@@ -283,6 +286,7 @@ returns
 
 ## ~/api/v1/contacts/:cid
 
+> **Needs Auth**\
 > _Method_: **PUT**\
 > _Action_: Updates only one field that has been supplied on the **Request** body on the database object with `_id` of `cid`
 
@@ -311,6 +315,7 @@ _Payload_:
 
 ## ~/api/v1/contacts/:cid
 
+> **Needs Auth**\
 > _Method_: **DELETE**\
 > _Action_: Deletes the Contact related to the given `cid` url parameter if the contact is created by the currently logged user
 
