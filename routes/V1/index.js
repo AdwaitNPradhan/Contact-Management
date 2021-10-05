@@ -1,4 +1,10 @@
-const { CreateContact } = require("./Contacts");
+const {
+  DeleteContact,
+  CreateContact,
+  GetContacts,
+  GetContact,
+  UpdateContact,
+} = require("./Contacts");
 const passport = require("passport");
 const { getProfile } = require("./profile");
 const router = require("express").Router();
@@ -8,18 +14,14 @@ router.get(
   passport.authenticate(["User"], {
     session: false,
   }),
-  (req, res) => {
-    res.status(200).send({ state: "OK", url: req.originalUrl });
-  }
+  GetContacts
 );
 router.get(
   "/contacts/:cid",
   passport.authenticate(["User"], {
     session: false,
   }),
-  (req, res) => {
-    res.status(200).send({ state: "OK", url: req.originalUrl });
-  }
+  GetContact
 );
 router.post(
   "/contacts",
@@ -33,21 +35,20 @@ router.put(
   passport.authenticate(["User"], {
     session: false,
   }),
-  (req, res) => {
-    res.status(200).send({ state: "OK", url: req.originalUrl });
-  }
+  UpdateContact
 );
 router.delete(
   "/contacts/:cid",
   passport.authenticate(["User"], {
     session: false,
   }),
-  (req, res) => {
-    res.status(200).send({ state: "OK", url: req.originalUrl });
-  }
+  DeleteContact
 );
-router.get("/profile",passport.authenticate(["User"], {
-  session: false,
-}),
-getProfile)
+router.get(
+  "/profile",
+  passport.authenticate(["User"], {
+    session: false,
+  }),
+  getProfile
+);
 module.exports = router;
