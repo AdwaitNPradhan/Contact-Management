@@ -7,7 +7,7 @@ const UserSchema = new mongoose.Schema({
     },
     valid: {
       type: Boolean,
-      required: true,
+      default: true,
     },
   },
   fName: {
