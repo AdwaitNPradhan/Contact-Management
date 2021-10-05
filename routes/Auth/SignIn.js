@@ -3,7 +3,7 @@ const User = require("../../Models/User");
 const issueJWT = require("../../Utils/JWTmaker");
 const bcrypt = require("bcrypt");
 exports.SignIn = (req, res, next) => {
-  const { email, password } = req.body;
+  let { email, password } = req.body;
   if (!email || !password) {
     let error = error4xx("Sign In", "Email, Password fields are required");
     console.error(error);
@@ -13,7 +13,7 @@ exports.SignIn = (req, res, next) => {
       .then((user) => {
         if (user) {
           if (bcrypt.compareSync(password, user.password)) {
-            const tokenObject = issueJWT("user", user);
+            let tokenObject = issueJWT("user", user);
             res
               .cookie("jwt", tokenObject.token)
               .status(200)
@@ -32,21 +32,21 @@ exports.SignIn = (req, res, next) => {
               });
           } else {
             let error = error4xx(
-              "Login1",
+              "Sign In",
               "Either the Email or the Password you entered is wrong"
             );
             res.status(401).send(error);
           }
         } else {
           let error = error4xx(
-            "Login2",
+            "Sign In",
             "Either the Email or the Password you entered is wrong"
           );
           res.status(404).send(error);
         }
       })
       .catch((err) => {
-        let error = error5xx(err, "Login lookup", "Error while Login look up");
+        let error = error5xx(err, "Sign In", "Error while Sign In look up");
         console.error(err);
         res.status(500).send(error);
       });

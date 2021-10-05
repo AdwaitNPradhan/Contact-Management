@@ -3,7 +3,7 @@ const issueJWT = require("../../Utils/JWTmaker");
 const bcrypt = require("bcrypt");
 const { error4xx, error5xx } = require("../../Controllers/ErrResponse");
 exports.SignUp = (req, res, next) => {
-  const { fName, lName, uName, email, phone, password } = req.body;
+    let { fName, lName, uName, email, phone, password } = req.body;
   if (!fName || !lName || !uName || !email || !phone || !password) {
     let error = error4xx("Sign Up", "Missing Fields");
     console.error(error);

@@ -8,6 +8,9 @@ const ContactSchema = new mongoose.Schema({
     deleted: {
       type: Boolean,
       default: false,
+    },
+    createdBy: {
+      type: String,
       required: true,
     },
   },
@@ -18,15 +21,18 @@ const ContactSchema = new mongoose.Schema({
   contact: {
     email: {
       type: String,
+      default: "NULL",
       required: true,
     },
     phone: {
       type: String,
+      default: "NULL",
       required: true,
     },
   },
   cType: {
     type: String,
+    default: "SELF",
     required: true,
   },
 });
