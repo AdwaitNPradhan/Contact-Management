@@ -1,6 +1,6 @@
 # Contact-Management
 
-Manage your Contact on apps you developer with this companion backend
+Manage your Contacts on apps you develop with this companion backend
 
 ## Environment Variables
 

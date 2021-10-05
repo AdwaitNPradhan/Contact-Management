@@ -97,10 +97,10 @@ exports.UpdateContact = (req, res, next) => {
       updateQuery = { cName: value };
       break;
     case "email":
-      updateQuery = { contact: { email: value } };
+      updateQuery = { "contact.email": value };
       break;
     case "phone":
-      updateQuery = { contact: { phone: value } };
+      updateQuery = { "contact.phone": value };
       break;
     case "cType":
       updateQuery = { cType: value };
