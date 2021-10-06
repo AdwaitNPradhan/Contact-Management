@@ -55,7 +55,7 @@ TOC:
 > _Method_: **GET**\
 > _Action_: Get some details about the servers health
 
-returns
+**Response**:
 
 ```json
 {
